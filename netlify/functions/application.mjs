@@ -1,5 +1,5 @@
 import { createStore } from '../../lib/store.js';
-import { createBlobAdapter } from '../../lib/blobAdapter.js';
+import { createBlobAdapter } from '../../lib/blobAdapter.mjs';
 
 const store = createStore(createBlobAdapter());
 
