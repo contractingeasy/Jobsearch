@@ -54,3 +54,13 @@ button.delete {
   border-radius: 4px;
   padding: 0.2rem 0.5rem;
 }
+
+td .edit-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.3rem;
+}
+
+td button {
+  margin-right: 0.3rem;
+}
