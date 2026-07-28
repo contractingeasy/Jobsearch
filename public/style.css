@@ -31,6 +31,29 @@ h1 {
   cursor: pointer;
 }
 
+#filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#filter-bar input,
+#filter-bar select {
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+#search {
+  flex: 1;
+  min-width: 12rem;
+}
+
+#empty-message {
+  color: #666;
+  font-style: italic;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;

@@ -1,6 +1,9 @@
 const form = document.getElementById('application-form');
 const tableBody = document.getElementById('applications-body');
 const errorMessage = document.getElementById('error-message');
+const searchInput = document.getElementById('search');
+const statusFilterSelect = document.getElementById('status-filter');
+const emptyMessage = document.getElementById('empty-message');
 
 let applications = [];
 let editingId = null;
@@ -130,10 +133,25 @@ function renderRow(application) {
 }
 
 function render() {
+  const filtered = filterApplications(applications, {
+    search: searchInput.value,
+    status: statusFilterSelect.value,
+  });
+
   tableBody.innerHTML = '';
-  applications.forEach((application) => {
+  filtered.forEach((application) => {
     tableBody.appendChild(renderRow(application));
   });
+
+  if (applications.length === 0) {
+    emptyMessage.textContent = 'No applications yet. Add one above.';
+    emptyMessage.hidden = false;
+  } else if (filtered.length === 0) {
+    emptyMessage.textContent = 'No applications match your search or filter.';
+    emptyMessage.hidden = false;
+  } else {
+    emptyMessage.hidden = true;
+  }
 }
 
 async function loadApplications() {
@@ -208,5 +226,8 @@ form.addEventListener('submit', async (event) => {
     showError(error);
   }
 });
+
+searchInput.addEventListener('input', render);
+statusFilterSelect.addEventListener('change', render);
 
 loadApplications();

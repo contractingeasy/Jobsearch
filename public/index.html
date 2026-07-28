@@ -26,6 +26,19 @@
 
     <p id="error-message" class="error" hidden></p>
 
+    <div id="filter-bar">
+      <input type="search" id="search" placeholder="Search company or role" />
+      <select id="status-filter">
+        <option value="">All statuses</option>
+        <option value="applied">Applied</option>
+        <option value="interview">Interview</option>
+        <option value="offer">Offer</option>
+        <option value="rejected">Rejected</option>
+      </select>
+    </div>
+
+    <p id="empty-message" hidden></p>
+
     <table id="applications-table">
       <thead>
         <tr>
@@ -41,6 +54,7 @@
     </table>
   </main>
 
+  <script src="filter.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
