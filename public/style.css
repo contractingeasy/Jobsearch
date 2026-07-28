@@ -13,6 +13,71 @@ h1 {
   margin-bottom: 1rem;
 }
 
+#tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #8884;
+}
+
+.tab-button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 1rem;
+}
+
+.tab-button.active {
+  border-bottom-color: currentColor;
+  font-weight: 600;
+}
+
+.hint {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+#job-search-form,
+#feed-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#job-search-form input,
+#feed-form input {
+  padding: 0.4rem;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 10rem;
+}
+
+#job-search-form button,
+#feed-form button {
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+#jobs-table {
+  margin-bottom: 2rem;
+}
+
+#feeds-list {
+  list-style: none;
+  padding: 0;
+}
+
+#feeds-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #8884;
+}
+
 #application-form {
   display: flex;
   flex-wrap: wrap;

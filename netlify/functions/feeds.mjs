@@ -1,7 +1,7 @@
-import { createStore } from '../../lib/store.js';
+import { createFeedStore } from '../../lib/feedStore.js';
 import { createBlobAdapter } from '../../lib/blobAdapter.mjs';
 
-const store = createStore(createBlobAdapter('applications'));
+const feedStore = createFeedStore(createBlobAdapter('feeds'));
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -12,15 +12,15 @@ function json(data, status = 200) {
 
 export default async (req) => {
   if (req.method === 'GET') {
-    const applications = await store.getAll();
-    return json(applications);
+    const feeds = await feedStore.getAll();
+    return json(feeds);
   }
 
   if (req.method === 'POST') {
     try {
       const body = await req.json();
-      const application = await store.create(body);
-      return json(application, 201);
+      const feed = await feedStore.create(body);
+      return json(feed, 201);
     } catch (err) {
       return json({ error: err.message }, 400);
     }
@@ -30,5 +30,5 @@ export default async (req) => {
 };
 
 export const config = {
-  path: '/api/applications',
+  path: '/api/feeds',
 };
