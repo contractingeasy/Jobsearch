@@ -5,10 +5,20 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "dev:netlify": "netlify dev",
     "test": "node --test test/*.test.js"
   },
   "license": "MIT",
   "dependencies": {
+    "@netlify/blobs": "^10.7.10",
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "netlify-cli": "^27.0.1"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "netlify-cli@27.0.1": true,
+    "sharp@0.34.5": true
   }
 }
