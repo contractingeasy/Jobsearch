@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jobsearch Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>Jobsearch Tracker</h1>
+
+    <form id="application-form">
+      <input type="text" id="company" placeholder="Company" required />
+      <input type="text" id="role" placeholder="Role" required />
+      <input type="date" id="dateApplied" />
+      <input type="url" id="link" placeholder="Posting link (optional)" />
+      <select id="status">
+        <option value="applied">Applied</option>
+        <option value="interview">Interview</option>
+        <option value="offer">Offer</option>
+        <option value="rejected">Rejected</option>
+      </select>
+      <button type="submit">Add Application</button>
+    </form>
+
+    <p id="error-message" class="error" hidden></p>
+
+    <table id="applications-table">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Role</th>
+          <th>Date Applied</th>
+          <th>Status</th>
+          <th>Link</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="applications-body"></tbody>
+    </table>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

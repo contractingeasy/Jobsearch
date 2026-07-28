@@ -1,0 +1,56 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+#application-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#application-form input,
+#application-form select {
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+#application-form button {
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid #8884;
+}
+
+.error {
+  color: #c0392b;
+}
+
+button.delete {
+  cursor: pointer;
+  color: #c0392b;
+  background: none;
+  border: 1px solid #c0392b;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+}
