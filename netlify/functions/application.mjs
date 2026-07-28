@@ -1,7 +1,7 @@
 import { createStore } from '../../lib/store.js';
 import { createBlobAdapter } from '../../lib/blobAdapter.mjs';
 
-const store = createStore(createBlobAdapter());
+const store = createStore(createBlobAdapter('applications'));
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {

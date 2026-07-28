@@ -10,51 +10,101 @@
   <main>
     <h1>Jobsearch Tracker</h1>
 
-    <form id="application-form">
-      <input type="text" id="company" placeholder="Company" required />
-      <input type="text" id="role" placeholder="Role" required />
-      <input type="date" id="dateApplied" />
-      <input type="url" id="link" placeholder="Posting link (optional)" />
-      <select id="status">
-        <option value="applied">Applied</option>
-        <option value="interview">Interview</option>
-        <option value="offer">Offer</option>
-        <option value="rejected">Rejected</option>
-      </select>
-      <button type="submit">Add Application</button>
-    </form>
+    <nav id="tabs">
+      <button type="button" class="tab-button" data-tab="applications">My Applications</button>
+      <button type="button" class="tab-button" data-tab="find-jobs">Find Jobs</button>
+    </nav>
 
-    <p id="error-message" class="error" hidden></p>
+    <section id="tab-applications" class="tab-panel">
+      <form id="application-form">
+        <input type="text" id="company" placeholder="Company" required />
+        <input type="text" id="role" placeholder="Role" required />
+        <input type="date" id="dateApplied" />
+        <input type="url" id="link" placeholder="Posting link (optional)" />
+        <select id="status">
+          <option value="applied">Applied</option>
+          <option value="interview">Interview</option>
+          <option value="offer">Offer</option>
+          <option value="rejected">Rejected</option>
+        </select>
+        <button type="submit">Add Application</button>
+      </form>
 
-    <div id="filter-bar">
-      <input type="search" id="search" placeholder="Search company or role" />
-      <select id="status-filter">
-        <option value="">All statuses</option>
-        <option value="applied">Applied</option>
-        <option value="interview">Interview</option>
-        <option value="offer">Offer</option>
-        <option value="rejected">Rejected</option>
-      </select>
-    </div>
+      <p id="error-message" class="error" hidden></p>
 
-    <p id="empty-message" hidden></p>
+      <div id="filter-bar">
+        <input type="search" id="search" placeholder="Search company or role" />
+        <select id="status-filter">
+          <option value="">All statuses</option>
+          <option value="applied">Applied</option>
+          <option value="interview">Interview</option>
+          <option value="offer">Offer</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </div>
 
-    <table id="applications-table">
-      <thead>
-        <tr>
-          <th>Company</th>
-          <th>Role</th>
-          <th>Date Applied</th>
-          <th>Status</th>
-          <th>Link</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="applications-body"></tbody>
-    </table>
+      <p id="empty-message" hidden></p>
+
+      <table id="applications-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Date Applied</th>
+            <th>Status</th>
+            <th>Link</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="applications-body"></tbody>
+      </table>
+    </section>
+
+    <section id="tab-find-jobs" class="tab-panel" hidden>
+      <form id="job-search-form">
+        <input type="text" id="job-keywords" placeholder="Keywords (e.g. software engineer)" />
+        <input type="text" id="job-location" placeholder="Location (optional)" />
+        <button type="submit">Search</button>
+      </form>
+
+      <p id="job-search-error" class="error" hidden></p>
+      <p id="job-search-empty" hidden></p>
+
+      <table id="jobs-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Source</th>
+            <th>Posted</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="jobs-body"></tbody>
+      </table>
+
+      <h2>RSS Feed Sources</h2>
+      <p class="hint">
+        Reed.co.uk results appear automatically once a Reed API key is configured on the server.
+        For other boards (TotalJobs, CWJobs, JobServe, Monster, Jobs.ac.uk, Hays, etc.), save a search
+        on that site, copy its RSS feed URL, and add it below.
+      </p>
+
+      <form id="feed-form">
+        <input type="text" id="feed-label" placeholder="Label (e.g. TotalJobs - Remote Dev)" />
+        <input type="url" id="feed-url" placeholder="RSS feed URL" required />
+        <button type="submit">Add Feed</button>
+      </form>
+
+      <p id="feed-error" class="error" hidden></p>
+
+      <ul id="feeds-list"></ul>
+    </section>
   </main>
 
   <script src="filter.js"></script>
   <script src="app.js"></script>
+  <script src="jobs.js"></script>
 </body>
 </html>
