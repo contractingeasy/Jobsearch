@@ -60,6 +60,28 @@ test('update rejects an invalid status', () => {
   assert.throws(() => store.update(created.id, { status: 'ghosted' }), /status must be one of/);
 });
 
+test('update rejects clearing company or role', () => {
+  const store = createStore(tempDataFile());
+  const created = store.create({ company: 'Acme', role: 'Engineer' });
+  assert.throws(() => store.update(created.id, { company: '  ' }), /company is required/);
+  assert.throws(() => store.update(created.id, { role: '' }), /role is required/);
+});
+
+test('update trims company, role, and link', () => {
+  const store = createStore(tempDataFile());
+  const created = store.create({ company: 'Acme', role: 'Engineer' });
+
+  const updated = store.update(created.id, {
+    company: '  Globex  ',
+    role: '  Senior Engineer  ',
+    link: '  https://example.com/job  ',
+  });
+
+  assert.equal(updated.company, 'Globex');
+  assert.equal(updated.role, 'Senior Engineer');
+  assert.equal(updated.link, 'https://example.com/job');
+});
+
 test('remove deletes an application and returns true', () => {
   const store = createStore(tempDataFile());
   const created = store.create({ company: 'Acme', role: 'Engineer' });
